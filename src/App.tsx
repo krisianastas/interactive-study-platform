@@ -95,7 +95,8 @@ export default function App() {
           </div>
           <div className="min-w-0">
             <h1 className="font-display font-extrabold text-ink text-[13px] sm:text-[14px] md:text-base tracking-tight flex items-center gap-1.5 leading-none truncate">
-              Interactive Study Platform
+                <span className="sm:hidden">ISP</span>
+                <span className="hidden sm:inline">Interactive Study Platform</span>
             </h1>
             <p className="text-[9px] font-mono text-ink-muted uppercase mt-1 tracking-[0.16em] font-bold">Grade 9 History</p>
           </div>
