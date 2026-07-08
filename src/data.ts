@@ -7,7 +7,7 @@ export const historyChapters: HistoryChapter[] = [
     title: "Civilization and State Organization in Ancient Times",
     sidebarTitle: "I. Civilization and State Organization in Ancient Times",
     category: "History 9 - From Rivers to Kingdoms",
-    tagline: "Standing at the doorway of history, the Grade 9 student begins their journey of discovery – crossing from curiosity into understanding, ready to explore how the past reveals the world we live in.",
+    tagline: "Standing at the doorway of history, the Grade 9 student begins their journey of discovery - crossing from curiosity into understanding, ready to explore how the past reveals the world we live in.",
     focusText: "Orientation to the ancient world, discovering how early human communities transited from nomadic clans to high-density river civilizations, establishing administrative laws, grain storage, visual writing symbols, and city-states.",
     detailsList: [
       "The role of large rivers (Nile, Tigris, Euphrates) in boosting agricultural surplus.",
@@ -27,7 +27,7 @@ export const historyChapters: HistoryChapter[] = [
     syllabusLessons: [
       {
         id: "l1",
-        title: "Review 1 – Civilizations of the Near East",
+        title: "Review 1 - Civilizations of the Near East",
         lessons: "Lessons 2 - 6",
         summary: "Discover the fertile crescent, Sumerian city-states, and irrigation achievements of early Mesopotamia.",
         quote: "An eye for an eye, and a tooth for a tooth.",
@@ -46,7 +46,7 @@ export const historyChapters: HistoryChapter[] = [
       },
       {
         id: "l2",
-        title: "Review 2 – Athenian Democracy",
+        title: "Review 2 - Athenian Democracy",
         lessons: "Lessons 7 - 10",
         summary: "Analyze the birth of direct democracy, citizen assemblies, ecclesia, and the structural reforms of Solon and Cleisthenes.",
         quote: "We do not say that a man who takes no interest in politics is a man who minds his own business; we say that he has no business here at all.",
@@ -65,7 +65,7 @@ export const historyChapters: HistoryChapter[] = [
       },
       {
         id: "l3",
-        title: "Review 3 – Greek Civilization",
+        title: "Review 3 - Greek Civilization",
         lessons: "Lessons 11 - 14",
         summary: "Investigate Greek city-states (poleis), the philosophical schools of Plato & Aristotle, Classical sculpture, and the Persian wars.",
         quote: "The unexamined life is not worth living.",
@@ -84,7 +84,7 @@ export const historyChapters: HistoryChapter[] = [
       },
       {
         id: "l4",
-        title: "Review 4 – The Roman Republic",
+        title: "Review 4 - The Roman Republic",
         lessons: "Lessons 15 - 18",
         summary: "Study the balanced republican constitution, plebeian versus patrician struggles, checks and balances, and the Punic campaigns.",
         quote: "The welfare of the people shall be the supreme law.",
@@ -103,7 +103,7 @@ export const historyChapters: HistoryChapter[] = [
       },
       {
         id: "l5",
-        title: "Review 5 – Roman Civilization",
+        title: "Review 5 - Roman Civilization",
         lessons: "Lessons 19 - 22",
         summary: "Chart Rome's transition from republic to global empire under Augustus, Pax Romana, advanced aqueducts, and legal codes.",
         quote: "I found Rome a city of bricks and left it a city of marble.",
@@ -148,7 +148,7 @@ export const historyChapters: HistoryChapter[] = [
     syllabusLessons: [
       {
         id: "l2-1",
-        title: "Review 1 – The Egyptian Afterlife",
+        title: "Review 1 - The Egyptian Afterlife",
         lessons: "Lessons 23 - 26",
         summary: "Understand the Weighing of the Heart trial, mummification rituals, and the role of the god Osiris in agrarian cycles.",
         quote: "Behold, I am come to thee. I have brought thee justice; I have driven away for thee sin.",
@@ -167,7 +167,7 @@ export const historyChapters: HistoryChapter[] = [
       },
       {
         id: "l2-2",
-        title: "Review 2 – Vedic Hymns of Fire and Sky",
+        title: "Review 2 - Vedic Hymns of Fire and Sky",
         lessons: "Lessons 27 - 29",
         summary: "Analyze early Indo-Aryan spiritual philosophies, sacrificial Agni fire rituals, and the preservation of divine sounds via oral memory standard.",
         quote: "Lead me from the unreal to the real. Lead me from darkness to light.",
@@ -212,7 +212,7 @@ export const historyChapters: HistoryChapter[] = [
     syllabusLessons: [
       {
         id: "l3-1",
-        title: "Review 1 – The Covenant and Judean Faith",
+        title: "Review 1 - The Covenant and Judean Faith",
         lessons: "Lessons 30 - 32",
         summary: "Understand the consolidation of Jewish monotheism, the Ten Commandments as ethical laws, and historical migration pathways.",
         quote: "Let justice roll down like waters, and righteousness like an ever-flowing stream.",
@@ -231,7 +231,7 @@ export const historyChapters: HistoryChapter[] = [
       },
       {
         id: "l3-2",
-        title: "Review 2 – Buddhism: The Eightfold Path",
+        title: "Review 2 - Buddhism: The Eightfold Path",
         lessons: "Lessons 33 - 35",
         summary: "Track the spread of Buddhism from Ashoka's rock edicts to the Silk Road, exploring mindfulness and overcoming attachments.",
         quote: "Peace comes from within. Do not seek it without.",
@@ -276,7 +276,7 @@ export const historyChapters: HistoryChapter[] = [
     syllabusLessons: [
       {
         id: "l4-1",
-        title: "Review 1 – Monastic Scriptoriums and Literacy",
+        title: "Review 1 - Monastic Scriptoriums and Literacy",
         lessons: "Lessons 36 - 38",
         summary: "Trace the preservation of philosophy, cartography, and medicine through monks copying scripts under candle light.",
         quote: "He who works with his hands prays; he who writes with his pen talks with God.",
@@ -295,7 +295,7 @@ export const historyChapters: HistoryChapter[] = [
       },
       {
         id: "l4-2",
-        title: "Review 2 – The Guild System",
+        title: "Review 2 - The Guild System",
         lessons: "Lessons 39 - 42",
         summary: "Investigate guilds driving urban independence, regulating craft quality, and constructing guildhalls.",
         quote: "City air makes you free.",

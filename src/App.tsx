@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { Check, Mail, Bell, Languages, Compass, ChevronDown, CheckCircle, HelpCircle, BookOpen, Clock, AlertTriangle } from "lucide-react";
+import { Check, Mail, Bell, Languages, Compass, ChevronDown, CheckCircle, HelpCircle, BookOpen, Clock, AlertTriangle, Sun, Moon } from "lucide-react";
 
 // Components
 import Sidebar from "./components/Sidebar";
@@ -30,6 +30,7 @@ export default function App() {
   const [correctQuizCount, setCorrectQuizCount] = useState<number>(0);
 
   // UI Micro-interaction states
+  const [theme, setTheme] = useState<"light" | "dark">("light");
   const [showLanguagesMenu, setShowLanguagesMenu] = useState(false);
   const [selectedLanguage, setSelectedLanguage] = useState("ENGLISH");
   const [showMessages, setShowMessages] = useState(false);
@@ -67,40 +68,50 @@ export default function App() {
 
   // Announcements notifications log
   const mockNotifications = [
-    { id: 1, title: "📅 Midterm Examination Schedule", description: "Ancient Civilizations midterm is next Tuesday. Review textbook chapters I to III.", urgent: true },
-    { id: 2, title: "📝 Essay Assignment Submission", description: "Submit your 'Comparison of direct Athenian and modern democracy' short response by Friday.", urgent: false }
+    { id: 1, title: "Midterm Examination Schedule", description: "Ancient Civilizations midterm is next Tuesday. Review textbook chapters I to III.", urgent: true },
+    { id: 2, title: "Essay Assignment Submission", description: "Submit your 'Comparison of direct Athenian and modern democracy' short response by Friday.", urgent: false }
   ];
 
+  useEffect(() => {
+    const previousRestoration = window.history.scrollRestoration;
+    window.history.scrollRestoration = "manual";
+    window.scrollTo(0, 0);
+
+    return () => {
+      window.history.scrollRestoration = previousRestoration;
+    };
+  }, []);
+
   return (
-    <div className="min-h-screen bg-[#0A0A0B] text-[#E0E0E0] font-sans relative overflow-x-hidden flex flex-col justify-between selection:bg-indigo-950">
+    <div data-theme={theme} className="theme-shell paper-texture min-h-[100dvh] text-ink font-sans relative overflow-x-hidden flex flex-col justify-between selection:bg-accent-wash">
       
       {/* 1. TOP HEADER NAVIGATION BAR */}
-      <header className="bg-[#111113]/95 backdrop-blur-md border-b border-white/5 h-16 px-4 md:px-8 flex justify-between items-center select-none sticky top-0 z-40">
+      <header className="bg-panel/90 backdrop-blur-md border-b border-line h-16 px-3 sm:px-4 md:px-8 flex justify-between items-center select-none sticky top-0 z-40">
         
         {/* Left: Vintage checkmark logo */}
-        <div className="flex items-center gap-3 cursor-pointer" onClick={() => { setSelectedChapterId("civilization-state"); setSpecialViewType(null); }}>
-          <div className="w-8 h-8 rounded bg-indigo-600 flex items-center justify-center border border-white/10 shadow-sm transform hover:rotate-6 transition-transform">
-            <Check className="w-5 h-5 text-white stroke-[3]" />
+        <div className="flex min-w-0 items-center gap-3 cursor-pointer" onClick={() => { setSelectedChapterId("civilization-state"); setSpecialViewType(null); }}>
+          <div className="w-9 h-9 rounded-xl bg-fill flex items-center justify-center border border-fill shadow-sm transform hover:-rotate-3 transition-transform">
+            <Check className="w-5 h-5 text-paper-soft stroke-[3]" />
           </div>
-          <div>
-            <h1 className="font-display font-extrabold text-[#E0E0E0] text-[14px] md:text-md tracking-wider flex items-center gap-1.5 uppercase leading-none">
+          <div className="min-w-0">
+            <h1 className="font-display font-extrabold text-ink text-[13px] sm:text-[14px] md:text-base tracking-tight flex items-center gap-1.5 leading-none truncate">
               Interactive Study Platform
             </h1>
-            <p className="text-[9px] font-mono text-white/40 uppercase mt-0.5 tracking-widest font-bold">Grade 9 Companion</p>
+            <p className="text-[9px] font-mono text-ink-muted uppercase mt-1 tracking-[0.16em] font-bold">Grade 9 History</p>
           </div>
         </div>
 
         {/* Right: English select, mail, alerts, initials avatar logo */}
-        <div className="flex items-center gap-4 text-xs font-semibold text-white/60">
+        <div className="flex items-center gap-1.5 sm:gap-3 text-xs font-semibold text-ink-soft">
           
           {/* Language Selector */}
           <div className="relative">
             <button
               onClick={() => { setShowLanguagesMenu(!showLanguagesMenu); setShowMessages(false); setShowNotifications(false); }}
-              className="flex items-center gap-1 hover:text-white transition-colors py-1 px-2 rounded hover:bg-white/5"
+              className="study-button flex items-center gap-1 hover:text-ink transition-colors py-1.5 px-2 rounded-lg hover:bg-accent-wash"
             >
-              <Languages className="w-4 h-4 text-indigo-400" />
-              <span className="font-mono text-[10px] uppercase font-bold tracking-wider">{selectedLanguage}</span>
+              <Languages className="w-4 h-4 text-accent" />
+              <span className="hidden sm:inline font-mono text-[10px] uppercase font-bold tracking-wider">{selectedLanguage}</span>
               <ChevronDown className={`w-3 h-3 transition-transform ${showLanguagesMenu ? 'rotate-180' : ''}`} />
             </button>
             
@@ -110,13 +121,13 @@ export default function App() {
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: 10 }}
-                  className="absolute right-0 mt-2 w-36 bg-[#111113] border border-white/5 rounded-lg shadow-xl py-2 z-50 text-left font-serif"
+                  className="absolute right-0 mt-2 w-36 study-panel rounded-xl shadow-xl py-2 z-50 text-left"
                 >
                   {["ENGLISH"].map((lang) => (
                     <button
                       key={lang}
                       onClick={() => { setSelectedLanguage(lang); setShowLanguagesMenu(false); }}
-                      className="w-full text-left py-1.5 px-3 block text-xs text-[#E0E0E0] hover:bg-white/5 font-semibold"
+                      className="w-full text-left py-1.5 px-3 block text-xs text-ink hover:bg-accent-wash font-semibold cursor-pointer"
                     >
                       {lang}
                     </button>
@@ -130,10 +141,10 @@ export default function App() {
           <div className="relative">
             <button
               onClick={() => { setShowMessages(!showMessages); setShowLanguagesMenu(false); setShowNotifications(false); }}
-              className="p-1.5 rounded-full hover:bg-white/5 hover:text-white relative transition-colors"
+              className="study-button p-2 rounded-full hover:bg-accent-wash hover:text-ink relative transition-colors cursor-pointer"
             >
-              <Mail className="w-4.5 h-4.5" />
-              <div className="absolute top-1 right-1 w-2 h-2 rounded-full bg-orange-600 animate-pulse" />
+              <Mail className="w-[18px] h-[18px]" />
+              <div className="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-accent" />
             </button>
 
             <AnimatePresence>
@@ -142,17 +153,17 @@ export default function App() {
                   initial={{ opacity: 0, scale: 0.95 }}
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.95 }}
-                  className="absolute right-0 mt-2 w-80 bg-[#111113] border border-white/5 rounded-xl shadow-2xl p-4 z-50 text-left font-sans"
+                  className="absolute right-[-3.5rem] sm:right-0 mt-2 w-[min(20rem,calc(100vw-1.5rem))] study-panel rounded-xl shadow-2xl p-4 z-50 text-left font-sans"
                 >
-                  <h4 className="font-serif font-bold border-b border-white/5 pb-2 text-[#E0E0E0] mb-2.5">
+                  <h4 className="font-bold border-b border-line-soft pb-2 text-ink mb-2.5">
                     History Office Messages
                   </h4>
                   <div className="space-y-3">
                     {mockMessages.map((msg) => (
-                      <div key={msg.id} className="text-xs bg-[#17171A] p-2.5 rounded border border-white/5 leading-relaxed text-white/70">
-                        <div className="flex justify-between font-bold text-white/90 text-[11px] mb-0.5 font-serif">
+                      <div key={msg.id} className="text-xs study-panel-muted p-2.5 rounded-xl leading-relaxed text-ink-soft">
+                        <div className="flex justify-between gap-3 font-bold text-ink text-[11px] mb-0.5">
                           <span>{msg.sender}</span>
-                          <span className="font-mono text-[9px] text-white/40">{msg.time}</span>
+                          <span className="font-mono text-[9px] text-ink-muted whitespace-nowrap">{msg.time}</span>
                         </div>
                         <p>{msg.text}</p>
                       </div>
@@ -167,10 +178,10 @@ export default function App() {
           <div className="relative">
             <button
               onClick={() => { setShowNotifications(!showNotifications); setShowLanguagesMenu(false); setShowMessages(false); }}
-              className="p-1.5 rounded-full hover:bg-white/5 hover:text-white relative transition-colors"
+              className="study-button p-2 rounded-full hover:bg-accent-wash hover:text-ink relative transition-colors cursor-pointer"
             >
-              <Bell className="w-4.5 h-4.5" />
-              <div className="absolute top-1 right-1 w-2 h-2 rounded-full bg-indigo-500 animate-ping" />
+              <Bell className="w-[18px] h-[18px]" />
+              <div className="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-danger" />
             </button>
 
             <AnimatePresence>
@@ -179,20 +190,20 @@ export default function App() {
                   initial={{ opacity: 0, scale: 0.95 }}
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.95 }}
-                  className="absolute right-0 mt-2 w-80 bg-[#111113] border border-white/5 rounded-xl shadow-2xl p-4 z-50 text-left font-sans"
+                  className="absolute right-[-1.5rem] sm:right-0 mt-2 w-[min(20rem,calc(100vw-1.5rem))] study-panel rounded-xl shadow-2xl p-4 z-50 text-left font-sans"
                 >
-                  <h4 className="font-serif font-bold border-b border-white/5 pb-2 text-[#E0E0E0] mb-2.5 flex items-center justify-between">
+                  <h4 className="font-bold border-b border-line-soft pb-2 text-ink mb-2.5 flex items-center justify-between">
                     <span>Upcoming Term Deadlines</span>
-                    <span className="text-[9px] font-mono text-white bg-indigo-600 px-1.5 py-0.5 rounded">Urgent</span>
+                    <span className="text-[9px] font-mono text-inverse bg-danger px-1.5 py-0.5 rounded-md">Urgent</span>
                   </h4>
                   <div className="space-y-3">
                     {mockNotifications.map((notif) => (
-                      <div key={notif.id} className="text-xs border-l-3 border-indigo-500 bg-[#17171A] p-2.5 rounded-r">
-                        <div className="flex items-center gap-1.5 font-bold text-white/90 flex-wrap mb-1 text-[11px] font-serif">
-                          {notif.urgent && <AlertTriangle className="w-3.5 h-3.5 text-rose-400" />}
+                      <div key={notif.id} className="text-xs border-l-4 border-accent bg-accent-wash/45 p-2.5 rounded-r-xl">
+                        <div className="flex items-center gap-1.5 font-bold text-ink flex-wrap mb-1 text-[11px]">
+                          {notif.urgent && <AlertTriangle className="w-3.5 h-3.5 text-danger" />}
                           <span>{notif.title}</span>
                         </div>
-                        <p className="text-white/45 leading-relaxed text-[10px]">{notif.description}</p>
+                        <p className="text-ink-soft leading-relaxed text-[10px]">{notif.description}</p>
                       </div>
                     ))}
                   </div>
@@ -201,20 +212,29 @@ export default function App() {
             </AnimatePresence>
           </div>
 
+          <button
+            type="button"
+            onClick={() => setTheme((current) => (current === "light" ? "dark" : "light"))}
+            className="study-button p-2 rounded-full hover:bg-accent-wash hover:text-ink transition-colors cursor-pointer"
+            aria-label={theme === "light" ? "Switch to dark mode" : "Switch to light mode"}
+            title={theme === "light" ? "Dark mode" : "Light mode"}
+          >
+            {theme === "light" ? <Moon className="w-[18px] h-[18px]" /> : <Sun className="w-[18px] h-[18px]" />}
+          </button>
+
           {/* Student Initial initials circle */}
           <div
             onClick={() => handleSelectSpecial("personal")}
-            className="w-8.5 h-8.5 rounded-full bg-indigo-600 text-white flex items-center justify-center font-serif text-[13px] font-bold border border-white/10 hover:bg-indigo-500 hover:text-white transition-all cursor-pointer shadow-sm relative overflow-hidden group"
+            className="w-[34px] h-[34px] rounded-full bg-accent text-inverse flex items-center justify-center text-[13px] font-bold border border-accent hover:bg-fill hover:text-inverse transition-all cursor-pointer shadow-sm relative overflow-hidden group"
           >
             KA
-            <div className="absolute inset-x-0 bottom-0 bg-indigo-300 opacity-0 group-hover:opacity-100 transition-opacity" />
           </div>
 
         </div>
       </header>
 
       {/* 2. MAIN WORKSPACE */}
-      <div className="flex-1 flex flex-col lg:flex-row max-w-7xl mx-auto w-full relative z-10 p-4 lg:p-6 gap-6">
+      <div className="flex-1 flex flex-col lg:flex-row max-w-7xl mx-auto w-full relative z-10 p-3 sm:p-4 lg:p-6 gap-4 lg:gap-6">
         
         {/* Left Sidebar tracking option coordinates */}
         <Sidebar
@@ -239,8 +259,9 @@ export default function App() {
                 className="space-y-4"
               >
                 {/* Visual Header context: Number and Title of active lesson */}
-                <div className="py-2 border-b border-white/5 mb-1">
-                  <h1 className="text-xl md:text-2xl font-serif font-black text-[#E0E0E0] tracking-tight leading-tight">
+                <div className="study-panel rounded-2xl px-4 py-3 md:px-5 md:py-4">
+                  <p className="text-[10px] font-mono text-accent uppercase tracking-[0.16em] font-bold mb-1">Active chapter</p>
+                  <h1 className="text-xl md:text-2xl font-extrabold text-ink tracking-tight leading-tight">
                     {activeChapter.romanId}. {activeChapter.title}
                   </h1>
                 </div>
@@ -259,9 +280,9 @@ export default function App() {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: 0.2 }}
-                  className="bg-[#111113] p-4 rounded-xl border border-white/5"
+                  className="study-panel p-4 rounded-2xl"
                 >
-                  <p className="text-xs md:text-sm font-serif italic text-white/70 leading-relaxed">
+                  <p className="text-xs md:text-sm text-ink-soft leading-relaxed">
                     {activeChapter.tagline}
                   </p>
                 </motion.div>
@@ -308,13 +329,13 @@ export default function App() {
       </div>
 
       {/* 3. VISUAL FOOTER FOOTNOTE */}
-      <footer className="bg-[#111113] border-t border-white/5 py-4 px-8 text-center select-none mt-10">
-        <p className="text-[10px] font-mono tracking-wider text-white/40 uppercase font-bold flex items-center justify-center gap-2">
-          <span>🛡 Interactive Companion</span>
+      <footer className="bg-panel/70 border-t border-line py-4 px-4 sm:px-8 text-center select-none mt-8">
+        <p className="text-[10px] font-mono tracking-wider text-ink-muted uppercase font-bold flex flex-wrap items-center justify-center gap-2">
+          <span>Interactive Companion</span>
           <span>•</span>
           <span>Grade 9 History Curriculums</span>
           <span>•</span>
-          <span>Archival Folio 2026</span>
+          <span>Archival Folio</span>
         </p>
       </footer>
 

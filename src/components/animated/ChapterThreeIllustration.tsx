@@ -269,8 +269,8 @@ export default function ChapterThreeIllustration() {
       </div>
 
       {/* Floating click tip */}
-      <p className="absolute bottom-2 right-3 pointer-events-none block text-[10px] font-mono select-none px-2 py-0.5 rounded backdrop-blur-sm bg-[#5d7d4c]/30 text-emerald-950/80">
-        🌿 Axial Age Wisdom — Touch Ground to Sprout Seedlings of Ethics
+      <p className="absolute bottom-2 right-3 pointer-events-none block text-[10px] font-mono select-none px-2 py-0.5 rounded-lg backdrop-blur-sm bg-[#fff7e8]/85 text-emerald-950/90">
+        Axial Age Wisdom - Touch Ground to Sprout Seedlings of Ethics
       </p>
     </div>
   );

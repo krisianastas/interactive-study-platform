@@ -310,13 +310,13 @@ export default function ChapterOneIllustration() {
 
         {/* Floating tooltip/hint when carving clicked */}
         {activeCarving && (
-          <div className="absolute top-4 left-1/2 transform -translate-x-1/2 bg-[#302315] text-[#eedcb8] px-3 py-1.5 rounded-md text-xs font-mono tracking-wide shadow-md border border-amber-accent/40 animate-bounce">
-            {activeCarving === "pyramid" && "▲ Giza Pyramid (c. 2560 BCE) — Royal Crypt"}
-            {activeCarving === "tablet" && "▤ Cuneiform Tablet — Hammurabi's legal records"}
-            {activeCarving === "wheat" && "🌾 Fertile Crescent — Birth of Agricultural Surplus"}
-            {activeCarving === "temple" && "⛩ Pan-Hellenic Temple — Classic Doric Pediment"}
-            {activeCarving === "pillars" && "🏛 Athenian Direct Ecclesia — Voting Pillars"}
-            {activeCarving === "vase" && "🏺 Roman Terracotta Amphora — Mediterranean Wine Trade"}
+          <div className="absolute top-4 left-1/2 transform -translate-x-1/2 bg-[#fff7e8]/95 text-[#3d2b16] px-3 py-1.5 rounded-lg text-xs font-mono tracking-wide shadow-md border border-[#b88743]/45">
+            {activeCarving === "pyramid" && "Giza Pyramid (c. 2560 BCE) - Royal Crypt"}
+            {activeCarving === "tablet" && "Cuneiform Tablet - Hammurabi's legal records"}
+            {activeCarving === "wheat" && "Fertile Crescent - Birth of Agricultural Surplus"}
+            {activeCarving === "temple" && "Pan-Hellenic Temple - Classic Doric Pediment"}
+            {activeCarving === "pillars" && "Athenian Direct Ecclesia - Voting Pillars"}
+            {activeCarving === "vase" && "Roman Terracotta Amphora - Mediterranean Wine Trade"}
           </div>
         )}
       </motion.div>

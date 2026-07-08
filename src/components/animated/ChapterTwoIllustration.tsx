@@ -250,15 +250,15 @@ export default function ChapterTwoIllustration() {
 
       {/* Clicking labels / feedback */}
       {activeConstellation && (
-        <div className="absolute top-4 left-1/2 transform -translate-x-1/2 bg-[#2d1136]/90 border border-[#ab70d1] text-[#faeeff] px-3 py-1.5 rounded-md text-xs font-mono tracking-wide shadow-2xl animate-fade-in-down">
-          {activeConstellation === "osiris" && "⚖ Column of Osiris — Egyptian Weighing of the Heart Court"}
-          {activeConstellation === "zeus" && "⚡ Column of Jupiter — Classical Hellenic civic duties"}
+        <div className="absolute top-4 left-1/2 transform -translate-x-1/2 bg-[#fff7e8]/95 border border-[#ab70d1]/45 text-[#2d1136] px-3 py-1.5 rounded-lg text-xs font-mono tracking-wide shadow-2xl animate-fade-in-down">
+          {activeConstellation === "osiris" && "Column of Osiris - Egyptian Weighing of the Heart Court"}
+          {activeConstellation === "zeus" && "Column of Jupiter - Classical Hellenic civic duties"}
         </div>
       )}
 
       {/* Floating interactive tip */}
-      <div className="absolute bottom-2 right-3 pointer-events-none block text-[10px] font-mono select-none px-2 py-0.5 rounded backdrop-blur-sm bg-black/40 text-pink-200/80">
-        ✨ Stars Alignment Active — Touch Pillars to Align
+      <div className="absolute bottom-2 right-3 pointer-events-none block text-[10px] font-mono select-none px-2 py-0.5 rounded-lg backdrop-blur-sm bg-[#fff7e8]/85 text-[#2d1136]">
+        Stars Alignment Active - Touch Pillars to Align
       </div>
     </div>
   );

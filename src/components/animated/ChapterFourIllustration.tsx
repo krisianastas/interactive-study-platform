@@ -214,8 +214,8 @@ export default function ChapterFourIllustration() {
       </motion.div>
 
       {/* Floating feedback label */}
-      <p className="absolute bottom-2 right-3 pointer-events-none block text-[10px] font-mono select-none px-2 py-0.5 rounded backdrop-blur-sm bg-[#5c2419]/30 text-rose-200/95">
-        🏰 Feudal Fortress — Click anywhere to extinguish/ignite Scriptorium Windows
+      <p className="absolute bottom-2 right-3 pointer-events-none block text-[10px] font-mono select-none px-2 py-0.5 rounded-lg backdrop-blur-sm bg-[#fff7e8]/85 text-[#5c2419]">
+        Feudal Fortress - Click anywhere to extinguish/ignite Scriptorium Windows
       </p>
     </div>
   );

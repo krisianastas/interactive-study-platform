@@ -187,8 +187,8 @@ export default function ChapterFiveIllustration() {
       ))}
 
       {/* Floating click tip */}
-      <p className="absolute bottom-2 right-3 pointer-events-none block text-[10px] font-mono select-none px-2 py-0.5 rounded backdrop-blur-sm bg-[#5c6928]/35 text-green-950/90">
-        🏹 Honfoglalás Nomadic Steppe — Click anywhere to fire Magyar cavalry archer horse arrows!
+      <p className="absolute bottom-2 right-3 pointer-events-none block text-[10px] font-mono select-none px-2 py-0.5 rounded-lg backdrop-blur-sm bg-[#fff7e8]/85 text-green-950/90">
+        Honfoglalas Nomadic Steppe - Click anywhere to fire Magyar cavalry archer horse arrows
       </p>
     </div>
   );

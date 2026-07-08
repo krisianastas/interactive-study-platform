@@ -18,43 +18,43 @@ export default function Sidebar({
   activeSpecialType,
 }: SidebarProps) {
   return (
-    <aside className="w-full lg:w-72 bg-[#111113] border-r border-white/5 flex flex-col p-4 font-sans select-none relative z-10 lg:min-h-screen">
+    <aside className="w-full lg:w-72 study-panel rounded-2xl flex flex-col p-4 font-sans select-none relative z-10 lg:sticky lg:top-20 lg:self-start lg:max-h-[calc(100dvh-6rem)]">
       
       {/* Mini Title bar context */}
-      <div className="mb-6 flex flex-col pt-2 border-b border-white/5 pb-4">
-        <h2 className="text-xs font-mono tracking-widest text-white/40 uppercase flex items-center gap-1.5 font-semibold">
-          <Compass className="w-3.5 h-3.5 animate-spin-slow text-indigo-400" /> Course Navigation
+      <div className="mb-5 flex flex-col border-b border-line-soft pb-4">
+        <h2 className="text-[10px] font-mono tracking-[0.16em] text-accent uppercase flex items-center gap-1.5 font-bold">
+          <Compass className="w-3.5 h-3.5 text-accent" /> Course Navigation
         </h2>
-        <h1 className="text-lg font-serif italic text-[#E0E0E0] mt-1 font-semibold leading-relaxed">
-          History 9 <br/>
-          <span className="text-indigo-400">The Adventure Unfolds...</span>
+        <h1 className="text-lg text-ink mt-1 font-extrabold leading-snug">
+          History 9
+          <span className="block text-sm font-semibold text-ink-soft">Rivers, realms, and kingdoms</span>
         </h1>
       </div>
 
       {/* Main Chapter Track Subtitle block */}
-      <div className="flex items-center gap-2 mb-3 text-xs font-semibold text-white/60">
-        <span className="inline-block w-1.5 h-1.5 transform rotate-45 bg-indigo-500" />
+      <div className="flex items-center gap-2 mb-3 text-xs font-semibold text-ink-soft">
+        <BookOpen className="w-3.5 h-3.5 text-accent" />
         <span>History 9 - Rivers, Realms, and Kingdoms</span>
       </div>
 
       {/* Navigation Buttons List */}
-      <div className="space-y-1.5 flex-1">
+      <div className="space-y-1.5 flex-1 lg:overflow-y-auto lg:pr-1">
         {chapters.map((ch) => {
           const isSelected = selectedId === ch.id && !activeSpecialType;
           return (
             <button
               key={ch.id}
               onClick={() => onSelect(ch.id)}
-              className={`w-full text-left py-2.5 px-3 rounded-lg text-xs leading-5 cursor-pointer font-medium transition-all relative ${
+              className={`study-button w-full text-left py-2.5 px-3 rounded-xl text-xs leading-5 cursor-pointer font-semibold transition-all relative ${
                 isSelected
-                  ? "text-indigo-300 z-10"
-                  : "text-white/60 hover:bg-white/5 hover:text-white"
+                  ? "text-ink z-10"
+                  : "text-ink-soft hover:bg-accent-wash/60 hover:text-ink"
               }`}
             >
               {isSelected && (
                 <motion.div
                   layoutId="active-sidebar"
-                  className="absolute inset-0 bg-indigo-600/15 border border-indigo-500/30 rounded-lg"
+                  className="absolute inset-0 bg-accent-wash border border-accent/30 rounded-xl"
                   transition={{ type: "spring", stiffness: 350, damping: 30 }}
                 />
               )}
@@ -66,52 +66,52 @@ export default function Sidebar({
         })}
 
         {/* Separator line */}
-        <div className="h-px bg-white/5 my-4" />
+        <div className="h-px bg-line-soft my-4" />
 
         {/* Special Sections: FAQ & Personal Gradebook */}
         <button
           onClick={() => onSelectSpecial("what-is")}
-          className={`w-full text-left py-2 px-3 cursor-pointer rounded-lg text-xs font-semibold flex items-center gap-2.5 transition-all relative ${
+          className={`study-button w-full text-left py-2 px-3 cursor-pointer rounded-xl text-xs font-semibold flex items-center gap-2.5 transition-all relative ${
             activeSpecialType === "what-is"
-              ? "text-indigo-300"
-              : "text-white/60 hover:bg-white/5 font-medium"
+              ? "text-ink"
+              : "text-ink-soft hover:bg-accent-wash/60 font-medium"
           }`}
         >
           {activeSpecialType === "what-is" && (
             <motion.div
               layoutId="active-sidebar"
-              className="absolute inset-0 bg-indigo-600/15 border border-indigo-500/30 rounded-lg"
+              className="absolute inset-0 bg-accent-wash border border-accent/30 rounded-xl"
               transition={{ type: "spring", stiffness: 350, damping: 30 }}
             />
           )}
-          <HelpCircle className="w-4 h-4 text-indigo-400 relative z-10" />
+          <HelpCircle className="w-4 h-4 text-accent relative z-10" />
           <span className="relative z-10">What is Interactive Study Platform - ISP?</span>
         </button>
 
         <button
           onClick={() => onSelectSpecial("personal")}
-          className={`w-full text-left py-2 px-3 cursor-pointer rounded-lg text-xs font-semibold flex items-center gap-2.5 transition-all relative ${
+          className={`study-button w-full text-left py-2 px-3 cursor-pointer rounded-xl text-xs font-semibold flex items-center gap-2.5 transition-all relative ${
             activeSpecialType === "personal"
-              ? "text-indigo-300"
-              : "text-white/60 hover:bg-white/5 font-medium"
+              ? "text-ink"
+              : "text-ink-soft hover:bg-accent-wash/60 font-medium"
           }`}
         >
           {activeSpecialType === "personal" && (
             <motion.div
               layoutId="active-sidebar"
-              className="absolute inset-0 bg-indigo-600/15 border border-indigo-500/30 rounded-lg"
+              className="absolute inset-0 bg-accent-wash border border-accent/30 rounded-xl"
               transition={{ type: "spring", stiffness: 350, damping: 30 }}
             />
           )}
-          <Award className="w-4 h-4 text-indigo-400 relative z-10" />
+          <Award className="w-4 h-4 text-accent relative z-10" />
           <span className="relative z-10 font-bold">My Personal Dashboard</span>
         </button>
       </div>
 
       {/* Bottom info foot note */}
-      <div className="mt-8 border-t border-white/5 pt-3 text-[10px] font-mono text-white/40 flex justify-between items-center bg-white/5 rounded p-2">
-        <span>📖 Grade 9 Manual</span>
-        <span className="text-indigo-400">v1.2 Live</span>
+      <div className="mt-6 border-t border-line-soft pt-3 text-[10px] font-mono text-ink-muted flex justify-between items-center bg-paper-soft rounded-xl p-2">
+        <span>Grade 9 Manual</span>
+        <span className="text-accent">Live course</span>
       </div>
     </aside>
   );
